@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTMLForm</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="">
+
+
+    <h1><b>Information Form</b></h1>
+    <form class="" action="index.html" name="html form" method="post">
+      <table>
+        <tr>
+          <td>Name :</td>
+          <td><input type="text" name="Name" placeholder="your name"  required></td>
+        </tr>
+        <tr>
+          <td>email address :</td>
+          <td><input type="email" name="Email" placeholder="youremail@gmail.com"  required></td>
+        </tr>
+        <tr>
+          <td>Mobile NO : +91</td>
+          <td><input type="tel" name="MobileNo" placeholder=" your mobile number" required></td>
+        </tr>
+        <tr>
+          <td>Passing year : </td>
+          <td><input type="number" name="passingYear" placeholder="your passing year" required></td>
+        </tr>
+        <tr>
+          <td>College Name : </td>
+          <td><input type="name" name="collegeName" placeholder="college name"  required></td>
+        </tr>
+        <tr>
+          <td>Skills :</td>
+          <td><textarea name="Skills" rows="4" cols="25" placeholder=" your skills"  required></textarea></td>
+        </tr>
+      </table>
+       <h4><input type="checkbox" name="" value=""  required>  Are you willing to share your information with us</h4>
+      <br>
+      <input type="submit" name="" value="Send your information">
+    </form>
+    </div>
+    <script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbzRwtuVPUgR31nxnGTtxMIZAM32_ypuv11Fyo0OUo3Lo7rYg9SfSjBDOYiqE2d-iQNvaw/exec'
+			const form = document.forms['html form']
+
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>
+
+  </body>
+</html>
